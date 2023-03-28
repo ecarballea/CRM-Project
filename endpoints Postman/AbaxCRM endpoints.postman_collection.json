@@ -1,0 +1,513 @@
+{
+	"info": {
+		"_postman_id": "4ed9fa30-cb58-44ef-a322-6e68819957a6",
+		"name": "AbaxCRM endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CRUD on Customer",
+			"item": [
+				{
+					"name": "Create a New Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"industry\": \"Ind2\",\r\n    \"name\": \"name2\",\r\n    \"status\": \"Status2\",\r\n    \"taxRate\": 0.25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read a Customer by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customer/f57e7019-bcb1-4f23-aa1c-42442135df76",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"f57e7019-bcb1-4f23-aa1c-42442135df76"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read All Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Customer by ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"industry\": \"Ind2-upd2\",\r\n    \"name\": \"name2\",\r\n    \"status\": \"Status2\",\r\n    \"taxRate\": 0.25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customer/966ac152-a984-4001-a5c4-01a829c8c127",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"966ac152-a984-4001-a5c4-01a829c8c127"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Customer by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customer/d86f2e07-94c5-4253-b523-ed4163fd40e2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"d86f2e07-94c5-4253-b523-ed4163fd40e2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD on Location",
+			"item": [
+				{
+					"name": "Create a New Location",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"address2\",\r\n    \"city\": \"city2\",\r\n    \"country\": \"country2\",\r\n    \"name\": \"name2\",\r\n    \"state\": \"state2\",\r\n    \"taxRate\": 0.3,\r\n    \"zip\": \"zip2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/location",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read a Location by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/location/677f0ce2-2cf8-4a97-b976-d53f8cb7faa6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"location",
+								"677f0ce2-2cf8-4a97-b976-d53f8cb7faa6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read All Locations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/location",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Locationby ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"address2-upd3\",\r\n    \"city\": \"city2\",\r\n    \"country\": \"country2\",\r\n    \"name\": \"name2\",\r\n    \"state\": \"state2\",\r\n    \"taxRate\": 0.3,\r\n    \"zip\": \"zip2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/location/79b16fb5-7634-42e6-b8a5-349ed3705d26",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"location",
+								"79b16fb5-7634-42e6-b8a5-349ed3705d26"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Locationby ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/location/b02b0f05-0dac-4b35-a99c-946e3510b5ac",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"location",
+								"b02b0f05-0dac-4b35-a99c-946e3510b5ac"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD on Contact",
+			"item": [
+				{
+					"name": "Create a New Contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name0\",\r\n    \"position\": \"pos20\",\r\n    \"type\": \"type20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/contact",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read a Contactby ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/contact/9d0f4ffc-8d94-46d4-ba98-b3ec39d549cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contact",
+								"9d0f4ffc-8d94-46d4-ba98-b3ec39d549cb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read All Contacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/contact",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Contact by ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name2-upd\",\r\n    \"position\": \"pos2\",\r\n    \"type\": \"type2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/contact/5638f41b-94e1-4a44-aa78-cedfccf8b92a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contact",
+								"5638f41b-94e1-4a44-aa78-cedfccf8b92a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Contact by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/contact/cdba105c-bd3e-445b-96c6-51125d972951",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contact",
+								"cdba105c-bd3e-445b-96c6-51125d972951"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD on Note",
+			"item": [
+				{
+					"name": "Create a New Note",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"note\": \"Any note for example 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/note",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read a Note by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/note/12c6a8c7-b8b2-4098-93f4-6e1c8ae92590",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"note",
+								"12c6a8c7-b8b2-4098-93f4-6e1c8ae92590"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read All Notes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/note",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Note by ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"note\": \"Any note for example 2 - upd2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/note/12c6a8c7-b8b2-4098-93f4-6e1c8ae92590",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"note",
+								"12c6a8c7-b8b2-4098-93f4-6e1c8ae92590"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Note by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/note/ce6fe888-2628-421b-97ed-44892ec9a9e5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"note",
+								"ce6fe888-2628-421b-97ed-44892ec9a9e5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
