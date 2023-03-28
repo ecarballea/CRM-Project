@@ -60,11 +60,8 @@ public class Location {
     @OneToMany(mappedBy = "location", cascade = CascadeType.REFRESH, orphanRemoval = true)
     private List<Contact> contacts = new ArrayList<>();
 
-    @ToString.Exclude
-    @ManyToMany(cascade = CascadeType.REFRESH)
-    @JoinTable(name = "location_notes",
-            joinColumns = @JoinColumn(name = "location_id"),
-            inverseJoinColumns = @JoinColumn(name = "notes_id"))
+
+    @OneToMany(mappedBy = "location", cascade = CascadeType.REFRESH, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Note> notes = new ArrayList<>();
 
 }

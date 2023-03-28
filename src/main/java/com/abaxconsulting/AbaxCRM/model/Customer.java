@@ -44,11 +44,8 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.REFRESH, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Contact> contacts = new ArrayList<>();
 
-    @ToString.Exclude
-    @ManyToMany(cascade = CascadeType.REFRESH)
-    @JoinTable(name = "customer_notes",
-            joinColumns = @JoinColumn(name = "customer_id"),
-            inverseJoinColumns = @JoinColumn(name = "notes_id"))
+
+    @OneToMany(mappedBy = "customer", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private List<Note> notes = new ArrayList<>();
 
 }

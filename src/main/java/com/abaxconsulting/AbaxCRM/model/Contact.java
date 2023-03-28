@@ -46,11 +46,8 @@ public class Contact {
     @JsonIgnore
     private Location location;
 
-    @ToString.Exclude
-    @ManyToMany(cascade = CascadeType.REFRESH)
-    @JoinTable(name = "contact_notes",
-            joinColumns = @JoinColumn(name = "contact_id"),
-            inverseJoinColumns = @JoinColumn(name = "notes_id"))
+
+    @OneToMany(mappedBy = "contact", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private List<Note> notes = new ArrayList<>();
 
 }

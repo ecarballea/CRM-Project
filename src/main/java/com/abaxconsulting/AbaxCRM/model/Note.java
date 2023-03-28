@@ -29,13 +29,19 @@ public class Note {
     @Column(name = "time_stamp")
     private Timestamp timeStamp;
 
-    @ManyToMany(mappedBy = "notes")
-    private List<Location> locations = new ArrayList<>();
+    @ToString.Exclude
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id")
+    private Location location;
 
-    @ManyToMany(mappedBy = "notes")
-    private List<Customer> customers = new ArrayList<>();
+    @ToString.Exclude
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    @ManyToMany(mappedBy = "notes")
-    private List<Contact> contacts = new ArrayList<>();
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "contact_id")
+    private Contact contact;
 
 }

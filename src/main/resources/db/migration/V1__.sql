@@ -8,10 +8,7 @@ CREATE TABLE customer (
    CONSTRAINT pk_customer PRIMARY KEY (id)
 );
 
-CREATE TABLE customer_notes (
-  customer_id UUID NOT NULL,
-   notes_id UUID NOT NULL
-);
+CREATE INDEX idx_customer_id_industry_name ON customer(id, industry, name, status);
 
 CREATE TABLE contact (
   id UUID NOT NULL,
@@ -24,10 +21,7 @@ CREATE TABLE contact (
    CONSTRAINT pk_contact PRIMARY KEY (id)
 );
 
-CREATE TABLE contact_notes (
-  contact_id UUID NOT NULL,
-   notes_id UUID NOT NULL
-);
+CREATE INDEX idx_contact_id_name_position ON contact(id, name, position, type);
 
 CREATE TABLE location (
   id UUID NOT NULL,
@@ -44,44 +38,27 @@ CREATE TABLE location (
    CONSTRAINT pk_location PRIMARY KEY (id)
 );
 
-CREATE TABLE location_notes (
-  location_id UUID NOT NULL,
-   notes_id UUID NOT NULL
-);
+CREATE INDEX idx_location_address_city ON location(address, city, country, name, state, name_address_state_city, zip, id);
 
 CREATE TABLE note (
   id UUID NOT NULL,
    note VARCHAR(255),
    time_stamp TIMESTAMP WITHOUT TIME ZONE,
+   location_id UUID,
+   customer_id UUID,
+   contact_id UUID,
    CONSTRAINT pk_note PRIMARY KEY (id)
 );
 
-CREATE INDEX idx_customer_id_industry_name ON customer(id, industry, name, status);
+ALTER TABLE note ADD CONSTRAINT FK_NOTE_ON_CONTACT FOREIGN KEY (contact_id) REFERENCES contact (id);
 
-ALTER TABLE customer_notes ADD CONSTRAINT fk_cusnot_on_customer FOREIGN KEY (customer_id) REFERENCES customer (id);
+ALTER TABLE note ADD CONSTRAINT FK_NOTE_ON_CUSTOMER FOREIGN KEY (customer_id) REFERENCES customer (id);
 
-ALTER TABLE customer_notes ADD CONSTRAINT fk_cusnot_on_note FOREIGN KEY (notes_id) REFERENCES note (id);
+ALTER TABLE note ADD CONSTRAINT FK_NOTE_ON_LOCATION FOREIGN KEY (location_id) REFERENCES location (id);
 
-
-
-
-CREATE INDEX idx_contact_id_name_position ON contact(id, name, position, type);
+ALTER TABLE location ADD CONSTRAINT FK_LOCATION_ON_CUSTOMER FOREIGN KEY (customer_id) REFERENCES customer (id);
 
 ALTER TABLE contact ADD CONSTRAINT FK_CONTACT_ON_CUSTOMER FOREIGN KEY (customer_id) REFERENCES customer (id);
 
 ALTER TABLE contact ADD CONSTRAINT FK_CONTACT_ON_LOCATION FOREIGN KEY (location_id) REFERENCES location (id);
-
-ALTER TABLE contact_notes ADD CONSTRAINT fk_connot_on_contact FOREIGN KEY (contact_id) REFERENCES contact (id);
-
-ALTER TABLE contact_notes ADD CONSTRAINT fk_connot_on_note FOREIGN KEY (notes_id) REFERENCES note (id);
-
-
-
-CREATE INDEX idx_location_address_city ON location(address, city, country, name, state, name_address_state_city, zip, id);
-
-ALTER TABLE location ADD CONSTRAINT FK_LOCATION_ON_CUSTOMER FOREIGN KEY (customer_id) REFERENCES customer (id);
-
-ALTER TABLE location_notes ADD CONSTRAINT fk_locnot_on_location FOREIGN KEY (location_id) REFERENCES location (id);
-
-ALTER TABLE location_notes ADD CONSTRAINT fk_locnot_on_note FOREIGN KEY (notes_id) REFERENCES note (id);
 
