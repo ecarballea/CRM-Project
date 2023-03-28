@@ -66,8 +66,8 @@ public class CustomerController {
             if (existingCustomer.isEmpty()){
                 throw new CustomerNotFoundException("The Customer ID '"+customerID+"' does not exist");
             } else {
-                Customer newCustomer = customerService.save(customer);
-                return new ResponseEntity<Customer>(newCustomer, HttpStatus.OK);
+                int response = customerService.update(customerID, customer);
+                return new ResponseEntity<Customer>(HttpStatus.OK);
             }
         }
     }

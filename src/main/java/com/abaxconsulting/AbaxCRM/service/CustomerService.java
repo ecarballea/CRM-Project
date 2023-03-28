@@ -1,6 +1,7 @@
 package com.abaxconsulting.AbaxCRM.service;
 
 import com.abaxconsulting.AbaxCRM.model.Customer;
+import com.abaxconsulting.AbaxCRM.model.Customer;
 import com.abaxconsulting.AbaxCRM.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,14 @@ public class CustomerService {
 
     public void delete(UUID id) {
         customerRepository.deleteById(id);
+    }
+
+    public int update(UUID customerID, Customer customer) {
+        int result = customerRepository.updateIndustryAndNameAndStatusAndTaxRateById(
+                customer.getIndustry(), customer.getName(), customer.getStatus(),
+                customer.getTaxRate(), customerID
+        );
+        return result;
+
     }
 }
